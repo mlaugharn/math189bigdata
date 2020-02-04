@@ -100,7 +100,7 @@ if __name__ == '__main__':
 
         noise = []
         "*** YOUR CODE HERE ***"
-
+        noise = np.random.normal(mu, sigma, sampleSize).reshape(-1, 1)
 
         "*** END YOUR CODE HERE ***"
 
@@ -112,7 +112,7 @@ if __name__ == '__main__':
 
         y_space_rand = np.zeros(len(X_space))
         "*** YOUR CODE HERE ***"
-
+        y_space_rand = X_space*m_opt + b_opt + noise
         "*** END YOUR CODE HERE ***"
 
 
@@ -130,7 +130,9 @@ if __name__ == '__main__':
         X_space_stacked = X_space       # need to be replaced following hint 1 and 2
         W_opt = None
         "*** YOUR CODE HERE ***"
-
+        X_space_stacked = np.hstack((np.ones((X_space.shape[0], 1)), X_space))
+        W_opt = np.linalg.solve(X_space_stacked.T@X_space_stacked, X_space_stacked.T@y_space_rand)
+ 
 
         "*** END YOUR CODE HERE ***"
 
@@ -147,8 +149,9 @@ if __name__ == '__main__':
 
         y_pred_rand = []
         "*** YOUR CODE HERE ***"
-
-
+        y_pred_rand = m_rand_opt * X_space + b_rand_opt
+        y_pred_rand = y_pred_rand.reshape(-1)
+        X_space = X_space.reshape(-1)
         "*** END YOUR CODE HERE ***"
 
         # generate plot
