@@ -1,7 +1,7 @@
 I want my midterm project to be participation in the following Kaggle competition:
 
 Deepfake detection challenge
-https://www.kaggle.com/c/deepfake-detection-challenge/data
+https://www.kaggle.com/c/deepfake-detection-challenge/
 
 Data:
 470 GB of video files, separated by fake and real
