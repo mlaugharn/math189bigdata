@@ -1,0 +1,18 @@
+I want my midterm project to be participation in the following Kaggle competition:
+
+Deepfake detection challenge
+https://www.kaggle.com/c/deepfake-detection-challenge/data
+
+Data:
+470 GB of video files, separated by fake and real
+
+Method:
+Using anisotropic kernels to determine visual glitches in video frames that correlate to fake data
+
+Inspired by:
+
+Two-sample Statistics Based on Anisotropic Kernels
+https://arxiv.org/abs/1709.05006
+
+A witness function based construction of discriminative models using Hermite polynomials 
+https://arxiv.org/abs/1901.02975
