@@ -1,13 +1,18 @@
 I want my midterm project to be participation in the following Kaggle competition:
-
 Deepfake detection challenge
 https://www.kaggle.com/c/deepfake-detection-challenge/
 
+Summary:  Using anisotropic kernels to determine visual glitches faces in video frames in forged videos.
+
 Data:
-470 GB of video files, separated by fake and real
+470 GB of video files, with the label 'fake' or 'real'
 
 Method:
-Using anisotropic kernels to determine visual glitches in video frames that correlate to fake data
+1. Extract all frames from videos
+2. Extract all faces from frames using MTCNN or similar face detection model
+3. Create embedding vectors per face per frame
+4. Given point clouds consisting of embedding vectors, calculate prob(video is fake | face embedding vectors, trained weights)
+4a. I want to calculate this probability using the maximum mean discrepancy metric and some kernels that rescale the data according to local covariance of the data (i.e., create basis functions that are shaped according to provided data, rather than e.g. Gaussian balls)
 
 Inspired by:
 
@@ -16,3 +21,11 @@ https://arxiv.org/abs/1709.05006
 
 A witness function based construction of discriminative models using Hermite polynomials 
 https://arxiv.org/abs/1901.02975
+
+Evaluation metric: log loss of predictions
+
+Possible challenges:
+- Model must run in < 9 hours on Kaggle hardware
+- Face detection models typically are not trained on fake faces, so might misbehave
+- Videos may contain multiple faces
+- Part of the challenge is detecting forged voices also, so I must find a way to incorporate that information as well
